@@ -4,6 +4,12 @@ import os
 from datetime import datetime
 
 from ingestion.api_client import fetch_news
+
+from processing.transform import transform_article
+from processing.deduplicate import remove_duplicates
+
+from storage.insert_articles import insert_articles
+
 from utils.logger import logger
 
 
@@ -23,24 +29,44 @@ def save_raw_data(data):
 
     logger.info(f"Raw data saved: {filename}")
 
-    print(f"Raw data saved: {filename}")
+
+def process_articles(raw_articles):
+
+    transformed = [
+        transform_article(article)
+        for article in raw_articles
+    ]
+
+    unique_articles = remove_duplicates(transformed)
+
+    return unique_articles
 
 
 def main():
 
     try:
 
-        logger.info("Starting news ingestion pipeline")
+        logger.info("Starting ingestion pipeline")
 
         data = fetch_news()
 
         save_raw_data(data)
 
-        logger.info("News ingestion completed successfully")
+        raw_articles = data.get("articles", [])
+
+        processed_articles = process_articles(raw_articles)
+
+        insert_articles(processed_articles)
+
+        logger.info(
+            f"Inserted {len(processed_articles)} articles successfully"
+        )
+
+        print(f"Inserted {len(processed_articles)} articles.")
 
     except Exception as e:
 
-        logger.error(f"Ingestion pipeline failed: {str(e)}")
+        logger.error(f"Pipeline failed: {str(e)}")
 
         print(f"Error: {e}")
 
