@@ -24,6 +24,7 @@ def insert_articles(articles):
 
             new_article = Article(
                 title=article["title"],
+                category=article["category"],
                 description=article["description"],
                 source=article["source"],
                 url=article["url"],
