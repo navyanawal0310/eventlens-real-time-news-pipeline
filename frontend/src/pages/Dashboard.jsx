@@ -39,17 +39,21 @@ export default function Dashboard() {
       {/* MAIN GRID */}
       <div className="grid grid-cols-12 gap-6">
 
-        {/* LIVE FEED */}
-       <h3 className="text-xl font-semibold mb-6">
-  Live Intelligence Feed
-</h3>
+       {/* LIVE FEED */}
+<div className="col-span-12 xl:col-span-6 bg-surface border border-border rounded-3xl p-6 h-[520px] flex flex-col">
 
-<div className="w-full h-full overflow-hidden">
-  <LiveFeed />
+  <h3 className="text-xl font-semibold mb-6">
+    Live Intelligence Feed
+  </h3>
+
+  <div className="flex-1 overflow-hidden">
+    <LiveFeed />
+  </div>
+
 </div>
 
         {/* PIPELINE */}
-        <div className="col-span-12 xl:col-span-4 bg-surface border border-border rounded-3xl p-6 h-[520px]">
+        <div className="col-span-12 xl:col-span-6 bg-surface border border-border rounded-3xl p-6 h-[520px]">
 
           <h3 className="text-xl font-semibold">
             Pipeline Monitoring

@@ -11,7 +11,7 @@ export default function DashboardLayout({ children }) {
 
         <Topbar />
 
-        <main className="p-8">
+        <main className="flex-1 px-8 pt-10 pb-8">
           {children}
         </main>
 

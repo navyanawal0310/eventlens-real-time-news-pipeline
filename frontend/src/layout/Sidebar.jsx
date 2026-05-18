@@ -16,57 +16,99 @@ const items = [
 
 export default function Sidebar() {
   return (
-    <aside className="w-72 border-r border-slate-800 bg-[#081018] h-screen p-6 flex flex-col">
+    <aside
+      className="
+        w-72
+        border-r border-border
+        bg-background
+        h-screen
+        px-6
+        pt-8
+        pb-6
+        flex flex-col
+      "
+    >
 
+      {/* LOGO */}
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight text-white">
+
+        <h1 className="text-[42px] font-bold tracking-[-0.05em] text-white leading-none">
           EventLens
         </h1>
 
-        <p className="text-slate-500 text-sm mt-1">
-          Intelligence Platform
+        <p className="text-slate-500 text-sm mt-3 tracking-wide">
+          Real-Time Intelligence Platform
         </p>
+
       </div>
 
-      <div className="mt-12 flex flex-col gap-2">
+      {/* NAVIGATION */}
+      <div className="mt-14 flex flex-col gap-3">
 
         {items.map((item) => (
           <button
             key={item.label}
             className="
-              flex items-center gap-4
-              px-4 py-3 rounded-xl
+              group
+              flex items-center gap-5
+              px-5 py-4
+              rounded-2xl
               text-slate-400
-              hover:bg-slate-900
-              hover:text-green-400
+              border border-transparent
+              hover:bg-primary/10
+              hover:border-primary/20
+              hover:text-primary
               transition-all
-              duration-200
+              duration-300
             "
           >
-            <item.icon size={18} />
 
-            <span className="text-sm font-medium">
+            <item.icon
+              size={21}
+              strokeWidth={1.8}
+              className="
+                transition-all
+                duration-300
+                group-hover:scale-110
+              "
+            />
+
+            <span className="text-[17px] font-medium tracking-wide">
               {item.label}
             </span>
+
           </button>
         ))}
 
       </div>
 
-      <div className="mt-auto border border-slate-800 rounded-2xl p-4 bg-[#0F172A]">
+      {/* SYSTEM STATUS */}
+      <div
+        className="
+          mt-auto
+          border border-primary/20
+          rounded-3xl
+          p-5
+          bg-surface/90
+          backdrop-blur-sm
+          shadow-glow
+        "
+      >
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-start gap-4">
 
-          <div className="h-3 w-3 rounded-full bg-green-400 animate-pulse" />
+          <div className="mt-1 h-3 w-3 rounded-full bg-primary animate-pulse" />
 
           <div>
-            <p className="text-sm text-green-400">
+
+            <p className="text-[15px] text-primary font-medium tracking-wide">
               Pipeline Active
             </p>
 
-            <p className="text-xs text-slate-500">
-              ETL systems operational
+            <p className="text-sm text-slate-500 mt-1 leading-relaxed">
+              ETL systems operational and ingesting global intelligence streams
             </p>
+
           </div>
 
         </div>

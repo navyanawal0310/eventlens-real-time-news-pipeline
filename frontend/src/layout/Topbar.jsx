@@ -1,29 +1,57 @@
 export default function Topbar() {
   return (
-    <header className="h-20 border-b border-slate-800 bg-[#071018] px-8 flex items-center justify-between">
+    <header
+      className="
+        border-b border-border
+        bg-background
+        px-10
+        pt-8
+        pb-6
+        flex
+        items-end
+        justify-between
+      "
+    >
 
+      {/* LEFT */}
       <div>
 
-        <h2 className="text-2xl font-semibold text-white">
-          Global Intelligence Overview
+        <p className="text-xs uppercase tracking-[0.25em] text-primary mb-4">
+          Global Monitoring System
+        </p>
+
+        <h2 className="text-[48px] font-bold tracking-[-0.04em]">
+          Intelligence Overview
         </h2>
 
-        <p className="text-sm text-slate-500 mt-1">
-          Real-time monitoring of global events and news systems
+        <p className="text-slate-500 mt-5 text-[15px] tracking-[0.01em] leading-relaxed">
+          Real-time monitoring of geopolitical events, media streams and intelligence pipelines
         </p>
 
       </div>
 
+      {/* RIGHT */}
       <div className="flex items-center gap-4">
 
-        <div className="bg-[#0F172A] border border-slate-800 rounded-xl px-4 py-2">
-          <p className="text-xs text-slate-500">
+        <div
+          className="
+            bg-surface/90
+            border border-primary/20
+            rounded-3xl
+            px-6 py-4
+            shadow-glow
+            min-w-[150px]
+          "
+        >
+
+          <p className="text-xs uppercase tracking-[0.2em] text-slate-500">
             Active Articles
           </p>
 
-          <p className="text-green-400 font-semibold">
+          <p className="text-primary font-semibold text-2xl mt-2">
             24,892
           </p>
+
         </div>
 
       </div>

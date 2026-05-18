@@ -4,8 +4,26 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+
   theme: {
-    extend: {},
+    extend: {
+
+      colors: {
+        primary: "#69BD5E",
+
+        background: "#071018",
+
+        surface: "#0F172A",
+
+        border: "rgba(105, 189, 94, 0.18)",
+      },
+
+      boxShadow: {
+        glow: "0 0 35px rgba(105, 189, 94, 0.08)",
+      },
+
+    },
   },
+
   plugins: [],
 }
